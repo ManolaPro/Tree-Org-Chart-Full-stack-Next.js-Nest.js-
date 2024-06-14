@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    container_name: org_structure_db
+    hostname: org_structure_db
+    image: postgres:latest
+    restart: always
+    env_file:
+      - .docker.env
+    ports:
+      - '5437:5432'
+    volumes:
+      - database:/var/lib/postgresql/data
+volumes:
+  database:
