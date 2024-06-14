@@ -12,6 +12,7 @@ export async function getAllUsers() {
         if(!res.ok) {
             const json = await res.json()
             console.error('getAllUsers error', json)
+            throw new Error('Something went wrong')
         }
         const data = await res.json();
         return data;

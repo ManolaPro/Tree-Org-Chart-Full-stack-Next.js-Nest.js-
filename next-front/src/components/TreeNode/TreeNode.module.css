@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.childWrapper {
+    display: flex;
+    gap: 30px;
+    /* border-top: solid 2px gray; */
+    /* position: relative; */
+}
+
+.childWrapper> div:first-child::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 50%;
+    height: 2px;
+    background-color: white;
+}
+
+.childWrapper> div:last-child::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -2px;
+    width: 50%;
+    height: 2px;
+    background-color: white;
+}
+
+.vertical {
+    background-color: grey;
+    width: 2px;
+    height: 60px;
+}
+
+.horizontal {
+    background-color: grey;
+    height: 2px;
+    width: 100%;
+}

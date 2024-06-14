@@ -11,7 +11,6 @@ export const UserCart = ({firstName, lastName, id}: UserCartProps) => {
     const [showDropdown, setShowDropDown] = useState(false)
     const clickHandler = () => {
         setShowDropDown(!showDropdown)
-        console.log(`Click to user with id:${id}`)
     }
     return <div className={styles.cartWrapper} onClick={clickHandler}>
         <Image

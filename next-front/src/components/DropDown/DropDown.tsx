@@ -3,22 +3,30 @@ import cn from 'classnames';
 import styles from './DropDown.module.css';
 import { DropDownProps } from "./DropDown.props";
 import { useRouter } from 'next/navigation';
+import { Button } from '../Button/Button';
+import { deleteUser } from '@/actions';
+import Link from 'next/link';
 
 export const DropDown = ({ id, isVisible}: DropDownProps) => {
-    const router = useRouter()
-    const deleteUser = () => {
-        console.log(`Delete user with id: ${id}`)
-    }
-    const changeUserManager = () => {
-        router.push(`/user/${id}`)
-    }
+    const deleteUserAction = deleteUser.bind(null, id)
+
     return (
         <div className={cn(styles.dropdown, {
             [styles.show]: !isVisible
         })}>
             <ul>
-                <li style={{color: 'red'}} onClick={deleteUser}>Delete</li>
-                <li onClick={changeUserManager}>Change manager</li>
+                <li>
+                    <form action={deleteUserAction}>
+                        <button className={styles.button}>
+                            Delete
+                        </button>
+                    </form>
+                </li>
+                <li>
+                    <Link href={`user/${id}`} className={styles.link}>
+                        Change manager
+                    </Link>
+                </li>
           </ul>
         </div>
     )
