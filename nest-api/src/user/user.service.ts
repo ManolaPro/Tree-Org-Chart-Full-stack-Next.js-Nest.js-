@@ -31,6 +31,8 @@ export class UserService {
         `${entity} with id: ${idError} is not found.`,
       );
     }
+    // change manager for all childrens with this manager id
+    await this.userRepository.updateManagerId(id, user.managerId);
     return await this.userRepository.changeManagerByUserId(id, managerId);
   }
 
