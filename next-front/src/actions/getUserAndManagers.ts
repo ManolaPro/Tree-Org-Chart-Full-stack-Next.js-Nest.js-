@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 export async function getUserInfoAndManagers(id: number) {
     try {
         const res = await fetch(`${API.USER}/${id}`, {
+            next: { revalidate: 0 },
             headers: {
 				'Content-type': 'application/json',
 			}
